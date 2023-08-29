@@ -73,6 +73,10 @@
     </Content>
     <Content Include="Login.aspx" />
     <Content Include="SignUp.aspx" />
+    <Content Include="studentlogin.aspx" />
+    <Content Include="studentsignup.aspx" />
+    <Content Include="teacherlogin.aspx" />
+    <Content Include="teachersignup.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +94,34 @@
     </Compile>
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="studentlogin.aspx.cs">
+      <DependentUpon>studentlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studentlogin.aspx.designer.cs">
+      <DependentUpon>studentlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="studentsignup.aspx.cs">
+      <DependentUpon>studentsignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studentsignup.aspx.designer.cs">
+      <DependentUpon>studentsignup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="teacherlogin.aspx.cs">
+      <DependentUpon>teacherlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="teacherlogin.aspx.designer.cs">
+      <DependentUpon>teacherlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="teachersignup.aspx.cs">
+      <DependentUpon>teachersignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="teachersignup.aspx.designer.cs">
+      <DependentUpon>teachersignup.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
