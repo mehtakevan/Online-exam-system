@@ -43,7 +43,7 @@ namespace project
                     Boolean hasdata = dt.Rows.Count == 1;
                     if (hasdata)
                     {
-                        Response.Redirect("home.aspx");
+                        Response.Redirect("studenthome.aspx");
                     }
                     else
                     {
