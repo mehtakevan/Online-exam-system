@@ -6,6 +6,66 @@
 <head runat="server">
     <title>Teacher Login</title>
 </head>
+    <style>
+        /* Style for the body element with a background image */
+        body {
+            background-image: url('https://studentprojectguide.com/wp-content/uploads/2020/07/Online-Exam-Portal.jpeg'); /* Replace 'exam-background.jpg' with the actual path to your image */
+            background-size: cover; /* Cover the entire viewport */
+            background-repeat: no-repeat; /* No repeating of the image */
+            background-attachment: fixed; /* Fixed background */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: Arial, sans-serif; /* Set a font-family */
+        }
+
+        /* Style for the table */
+        table.auto-style1 {
+            width: 50%;
+            margin: 0 auto; /* Center the table horizontally */
+            margin-top: 250px;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.8); /* Background color with transparency */
+            padding: 20px; /* Add some padding to the table */
+        }
+
+        /* Style for table cells with class auto-style2 */
+        td.auto-style2 {
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        /* Style for textboxes */
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Style for the Register button */
+        #btnSignUp {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            text-align:left;
+            border:groove;
+            cursor: pointer;
+        }
+
+        #btnlogin{
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            text-align:left;
+            border:groove;
+            cursor: pointer;
+        }
+
+        /* Style for the RequiredFieldValidator error message */
+        .validator-error {
+            text-align:right;
+            color: red;
+        }
+    </style>
 <body>
         <div>
         </div>

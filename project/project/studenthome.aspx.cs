@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace project
 {
@@ -175,6 +177,139 @@ namespace project
             }
             cid = int.Parse(ccid);
             return cid;
+        }
+
+        DataSet ds;
+        protected void btnevaluate_click(object sender, EventArgs e)
+        {
+            int sid = (int)Session["stdId"];
+            string sub = ddsub.Text;
+            int std = int.Parse(ddstd.Text);
+            int cid = FetchCourseId(sub, std);
+
+            List<int> givenans = new List<int>();
+
+            foreach (RepeaterItem item in QuestionsRepeater.Items)
+            {
+                if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+                {
+                    // Find the RadioButtonList control within the Repeater item
+                    RadioButtonList optionsRadioButtonList = (RadioButtonList)item.FindControl("OptionsRadioButtonList");
+
+                    // Check if the RadioButtonList control is found
+                    if (optionsRadioButtonList != null)
+                    {
+                        int l = 0;
+                        // Loop through the items in the RadioButtonList to find the selected item
+                        foreach (ListItem radioItem in optionsRadioButtonList.Items)
+                        {
+                            if (radioItem.Selected)
+                            {
+                                // Get the selected value (the option text or value)
+                                string selectedOption = radioItem.Text; // or radioItem.Value
+                                givenans.Add(l);
+                            }
+                            l++;
+                        }
+                    }
+                    else
+                    {
+                        givenans.Add(-1);
+                    }
+                }
+
+            }
+            List<string> correctans = new List<string>();
+            int p = 0;
+            int total = 0;
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            try
+            {
+                SqlConnection con = new SqlConnection(constr);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "Select * from Question where Cid = @cid";
+                cmd.Parameters.AddWithValue("@cid", cid);
+                using (con)
+                {
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string ans = reader["Ans"].ToString();
+                        string tmarks = reader["Marks"].ToString();
+                        string tnegmarks = reader["Negmarks"].ToString();
+                        int marks = int.Parse(tmarks);
+                        int negmarks = int.Parse(tnegmarks);
+
+                        if (givenans[p] == -1)
+                        {
+                            p++;
+                        }
+                        else if (ans == "OptionA" && givenans[p] == 0)
+                        {
+                            total += marks;
+                            p++;
+                        }
+                        else if (ans == "OptionB" && givenans[p] == 1)
+                        {
+                            total += marks;
+                            p++;
+                        }
+                        else if (ans == "OptionC" && givenans[p] == 2)
+                        {
+                            total += marks;
+                            p++;
+
+                        }
+                        else if (ans == "OptionD" && givenans[p] == 3)
+                        {
+                            total += marks;
+                            p++;
+                        }
+                        else
+                        {
+                            total -= negmarks;
+                            p++;
+                        }
+                    }
+
+                }
+                Session["Total"] = total;
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex);
+                Response.Write(ex.ToString());
+            }
+            try
+            {
+                SqlConnection conn = new SqlConnection(constr);
+                SqlCommand cmdd = new SqlCommand();
+                cmdd.Connection = conn;
+                cmdd.CommandText = "Select * from Report";
+
+                using (conn) {
+                    conn.Open();
+                    //cmd.CommandText = "Select * from Report";
+                    SqlDataAdapter da = new SqlDataAdapter(cmdd);
+                    ds = new DataSet();
+                    da.Fill(ds, "Report");
+                    DataTable dt = ds.Tables["Report"];
+                    DataRow dr = dt.NewRow();
+                    dr["SID"] = sid;
+                    dr["CID"] = cid;
+                    string tmarks = Session["Total"].ToString();
+                    dr["Marks"] = int.Parse(tmarks);
+                    dt.Rows.Add(dr);
+                    SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(da);
+                    da.Update(ds, "Report");
+                }
+            }catch(Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+            Response.Redirect("Result.aspx");
         }
     }
 }

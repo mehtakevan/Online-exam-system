@@ -90,5 +90,10 @@ namespace project
                 Response.Write(ex.ToString());
             }
         }
+
+        protected void btnlogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("teacherlogin.aspx");
+        }
     }
 }

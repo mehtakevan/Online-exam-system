@@ -31,7 +31,8 @@ namespace project
                 cmd.CommandText = "SELECT * FROM Student where UserName = @uname and Password = @upassword";
                 cmd.Parameters.AddWithValue("@uname", uname);
                 cmd.Parameters.AddWithValue("@upassword", upassword);
-
+                int sid;
+                string ssid = "";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 ds = new DataSet();
                 using (con)
@@ -41,8 +42,16 @@ namespace project
                     da.Fill(ds, "Student");
                     DataTable dt = ds.Tables["Student"];
                     Boolean hasdata = dt.Rows.Count == 1;
+                    SqlDataReader reader = cmd.ExecuteReader();
                     if (hasdata)
                     {
+                        while (reader.Read())
+                        {
+                            ssid = reader["Id"].ToString();
+                        }
+                        sid = int.Parse(ssid);
+                        Session["stdId"] = sid;
+                        Response.Write(sid);   
                         Response.Redirect("studenthome.aspx");
                     }
                     else
@@ -59,7 +68,7 @@ namespace project
         }
 
         protected void btnsignup_Click(object sender, EventArgs e)
-        {
+        { 
             Response.Redirect("studentsignUp.aspx");
         }
     }
