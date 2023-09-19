@@ -9,7 +9,7 @@
     <style>
         /* Style for the body element with a background image */
         body {
-            background-image: url('https://studentprojectguide.com/wp-content/uploads/2020/07/Online-Exam-Portal.jpeg'); /* Replace 'exam-background.jpg' with the actual path to your image */
+            background-image: url('https://images.unsplash.com/photo-1593589279419-7da07fd2148d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); /* Replace 'exam-background.jpg' with the actual path to your image */
             background-size: cover; /* Cover the entire viewport */
             background-repeat: no-repeat; /* No repeating of the image */
             background-attachment: fixed; /* Fixed background */
@@ -19,14 +19,15 @@
         }
 
         /* Style for the table */
-        table.auto-style1 {
-            width: 50%;
-            margin: 0 auto; /* Center the table horizontally */
-            margin-top: 250px;
-            border-collapse: collapse;
-            background-color: rgba(255, 255, 255, 0.8); /* Background color with transparency */
-            padding: 20px; /* Add some padding to the table */
-        }
+       table.auto-style1 {
+    width: 50%;
+    length: 60%;
+    margin: 0 auto; /* Center the table horizontally */
+    margin-top: 300px;
+    border-collapse: collapse;
+    background-color: black; /* Background color with transparency */
+    padding: 20px 0; /* Add some padding to the table, with 0 padding at the bottom */
+}
 
         /* Style for table cells with class auto-style2 */
         td.auto-style2 {
@@ -64,6 +65,9 @@
         .validator-error {
             text-align:right;
             color: red;
+        }
+        .auto-style2{
+            color: white;
         }
     </style>
 <body>
