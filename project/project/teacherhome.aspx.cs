@@ -49,7 +49,7 @@ namespace project
 
             relatedContent = new List<string>();
 
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
 
             try
             {
@@ -81,7 +81,7 @@ namespace project
 
         protected void btnsubmit_click(object sender, EventArgs e)
         {
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
             string sub = ddsub.Text;
             int std = int.Parse(ddstd.Text);
             int cid = FetchCourseId(sub, std);
@@ -125,7 +125,7 @@ namespace project
                         }
                     }
                 }
-
+                Response.Redirect("home_teacher.aspx");
                 // Data successfully inserted, you can redirect or display a success message
             }
             catch (Exception ex)
@@ -140,7 +140,7 @@ namespace project
         {
             int cid = -1;
             string ccid = "";
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
             try
             {
                 SqlConnection con = new SqlConnection(constr);

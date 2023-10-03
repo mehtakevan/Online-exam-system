@@ -20,7 +20,7 @@ namespace project
         {
             Trace.Write("Hello");
             Response.Write("Hum sath");
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
             try
             {
                 SqlConnection con = new SqlConnection(constr);
@@ -43,7 +43,7 @@ namespace project
                     Boolean hasdata = dt.Rows.Count == 1;
                     if (hasdata)
                     {
-                        Response.Redirect("teacherhome.aspx");
+                        Response.Redirect("home_teacher.aspx");
                     }
                     else
                     {

@@ -60,7 +60,7 @@ namespace project
 
         protected void btnregistr_Click(object sender, EventArgs e)
         {
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
             try
             {
                 SqlConnection con = new SqlConnection(constr);
@@ -84,6 +84,7 @@ namespace project
                     SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(da);
                     da.Update(ds, "Teacher");
                 }
+                Response.Redirect("teacherlogin.aspx");
             }
             catch (Exception ex)
             {

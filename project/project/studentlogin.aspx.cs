@@ -18,15 +18,14 @@ namespace project
         DataSet ds;
         protected void btnlogin_click(object sender, EventArgs e)
         {
-            Trace.Write("Hello");
-            Response.Write("Hum sath");
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+
+            string uname = tbUName.Text;
+            string upassword = tbPassword.Text;
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
             try
             {
                 SqlConnection con = new SqlConnection(constr);
                 SqlCommand cmd = new SqlCommand();
-                string uname = tbUName.Text;
-                string upassword = tbPassword.Text;
                 cmd.Connection = con;
                 cmd.CommandText = "SELECT * FROM Student where UserName = @uname and Password = @upassword";
                 cmd.Parameters.AddWithValue("@uname", uname);

@@ -58,7 +58,7 @@
 
     .button-container button {
       padding: 10px 20px;
-    background-color: aqua ; /* Change the background color to aqua blue */
+    background-color: aqua ; 
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -75,9 +75,19 @@
         <h1>Time For Test</h1>
         <div>
             <asp:DropDownList runat="server" ID="ddstd" AutoPostBack="true" OnSelectedIndexChanged="fsubjectselect">
-                <asp:ListItem>Select standard</asp:ListItem>
+               <asp:ListItem>Select standard</asp:ListItem>
                 <asp:ListItem>1</asp:ListItem>
                 <asp:ListItem>2</asp:ListItem>
+                <asp:ListItem>3</asp:ListItem>
+                <asp:ListItem>4</asp:ListItem>
+                <asp:ListItem>5</asp:ListItem>
+                <asp:ListItem>6</asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>8</asp:ListItem>
+                <asp:ListItem>9</asp:ListItem>
+                <asp:ListItem>10</asp:ListItem>
+                <asp:ListItem>11</asp:ListItem>
+                <asp:ListItem>12</asp:ListItem>
             </asp:DropDownList><br />
             <asp:DropDownList runat="server" ID="ddsub">
                 <asp:ListItem>Select subject</asp:ListItem>

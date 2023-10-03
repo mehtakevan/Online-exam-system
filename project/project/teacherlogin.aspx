@@ -6,69 +6,87 @@
 <head runat="server">
     <title>Teacher Login</title>
 </head>
-    <style>
-        /* Style for the body element with a background image */
+   <style>
+        html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
         body {
-            background-image: url('https://images.unsplash.com/photo-1593589279419-7da07fd2148d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); /* Replace 'exam-background.jpg' with the actual path to your image */
-            background-size: cover; /* Cover the entire viewport */
-            background-repeat: no-repeat; /* No repeating of the image */
-            background-attachment: fixed; /* Fixed background */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
-            font-family: Arial, sans-serif; /* Set a font-family */
+              font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1593589279419-7da07fd2148d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+   
         }
-
-        /* Style for the table */
-       table.auto-style1 {
-    width: 50%;
-    length: 60%;
-    margin: 0 auto; /* Center the table horizontally */
-    margin-top: 300px;
-    border-collapse: collapse;
-    background-color: black; /* Background color with transparency */
-    padding: 20px 0; /* Add some padding to the table, with 0 padding at the bottom */
+form {
+    width: 500px;
+    height: 180px; 
+    margin: 300px auto;
+    padding: 20px;
+    background-color: rgba(139, 69, 19, 0.5);
+    border: 4px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; 
 }
 
-        /* Style for table cells with class auto-style2 */
-        td.auto-style2 {
-            font-weight: bold;
-            padding: 5px;
-        }
 
-        /* Style for textboxes */
-        input[type="text"] {
-            width: 100%;
-            padding: 5px;
-            margin-bottom: 10px;
-        }
+table {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
 
-        /* Style for the Register button */
-        #btnSignUp {
-            padding: 10px;
-            background-color: #007BFF;
-            color: #fff;
-            text-align:left;
-            border:groove;
-            cursor: pointer;
-        }
+.auto-style2 {
+    width: 30%;
+    font-weight:100;
+    text-align: right;
+    padding-right: 10px;
+    vertical-align: top;
+    font-size: 20px;
+}
 
-        #btnlogin{
-            padding: 10px;
-            background-color: #007BFF;
-            color: #fff;
-            text-align:left;
-            border:groove;
-            cursor: pointer;
-        }
+.auto-style3 {
+    padding-left: 10px;   
+    vertical-align: top;
+}
 
-        /* Style for the RequiredFieldValidator error message */
-        .validator-error {
-            text-align:right;
-            color: red;
-        }
-        .auto-style2{
-            color: white;
-        }
+.auto-style4 {
+    text-align: center;
+}
+
+.auto-style5 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auto-style6 {
+    width: 100%;
+    text-align: center;
+}
+
+.auto-style7 {
+    margin-top: 10px;
+}
+
+.auto-style8 {
+    background-color: #007BF;
+    color: #fff;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.auto-style8:hover {
+    background-color: #0056b3;
+}
+
+.auto-style9 {
+    color: Red;
+}
     </style>
 <body>
         <div>
@@ -77,6 +95,7 @@
         <div>
         </div>
         <table class="auto-style1">
+            <h1>Login As Teacher</h1>
             <tr>
                 <td class="auto-style2">UserName</td>
                 <td>
@@ -89,7 +108,7 @@
             <tr>
                 <td class="auto-style2">Password</td>
                 <td>
-                    <asp:TextBox ID="tbPassword" runat="server"></asp:TextBox>
+                    <asp:Textbox ID="tbPassword" runat="server" TextMode="Password"></asp:Textbox>
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorPassword" runat="server" ControlToValidate="tbPassword" ErrorMessage="Password is Required" ForeColor="Red"></asp:RequiredFieldValidator>

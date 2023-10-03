@@ -33,15 +33,6 @@ namespace project
         protected global::System.Web.UI.WebControls.TextBox tbUName;
 
         /// <summary>
-        /// RequiredFieldValidatorUserName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorUserName;
-
-        /// <summary>
         /// tbPassword control.
         /// </summary>
         /// <remarks>
@@ -49,15 +40,6 @@ namespace project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbPassword;
-
-        /// <summary>
-        /// RequiredFieldValidatorPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPassword;
 
         /// <summary>
         /// btnlogin control.

@@ -15,24 +15,23 @@
         body {
               font-family: Arial, sans-serif;
     background-image: url('https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-    background-size: cover; /* Scale the background image to cover the entire viewport */
-    background-repeat: no-repeat; /* Prevent background image from repeating */
-    background-attachment: fixed; /* Fixed background position */
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
    
         }
 form {
     width: 500px;
-    height: 200px; /* Increase the height as needed */
-    margin: 300px auto; /* Center the form horizontally and adjust margin-top accordingly */
+    height: 200px; 
+    margin: 300px auto; 
     padding: 20px;
     background-color: rgba(139, 69, 19, 0.5);
     border: 4px solid black;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center-align the content inside the form */
+    text-align: center; 
 }
 
-/* Center-align the text fields and buttons inside the form */
 table {
     width: 100%;
     text-align: center;
@@ -78,7 +77,7 @@ btnRegister{
             <tr>
                 <td class="auto-style2">Email</td>
                 <td>
-                    <asp:TextBox ID="tbEmail" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbEmail" runat="server" TextMode="Email"></asp:TextBox>
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbEmail" ErrorMessage="Email is Required" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -96,7 +95,7 @@ btnRegister{
             <tr>
                 <td class="auto-style2">Password</td>
                 <td>
-                    <asp:TextBox ID="tbPassword" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbPassword" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorPassword" runat="server" ControlToValidate="tbPassword" ErrorMessage="Password is Required" ForeColor="Red"></asp:RequiredFieldValidator>

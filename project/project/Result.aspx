@@ -31,8 +31,12 @@
 <body>
     <form id="form1" runat="server">
         <div class="container">
-            <h1>Your Score Is</h1> <%= Score %>
-            <asp:Label ID="ScoreLabel" runat="server" Text=""></asp:Label>
+            <h1>Your Score Is</h1> <h1><%= Score %></h1>
+            <h4>Correct answer = <%= AnswerCorrect %> </h4>
+            <h4>InCorrect answer = <%= AnswerIncorrect %> </h4>
+            <h4>Not answer = <%= AnswerNot %> </h4>
+            <h4>Time Taken = <%= Time %> </h4>
+            <asp:Button runat="server" Text="LogOut" ID="btnlogout" OnClick="logout"></asp:Button><br /><br />
         </div>
     </form>
 </body>

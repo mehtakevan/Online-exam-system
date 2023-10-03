@@ -71,6 +71,10 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="history.aspx" />
+    <Content Include="Homepage.aspx" />
+    <Content Include="home_student.aspx" />
+    <Content Include="home_teacher.aspx" />
     <Content Include="Result.aspx" />
     <Content Include="studenthome.aspx" />
     <Content Include="studentlogin.aspx" />
@@ -82,6 +86,34 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="history.aspx.cs">
+      <DependentUpon>history.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="history.aspx.designer.cs">
+      <DependentUpon>history.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Homepage.aspx.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepage.aspx.designer.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home_student.aspx.cs">
+      <DependentUpon>home_student.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home_student.aspx.designer.cs">
+      <DependentUpon>home_student.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home_teacher.aspx.cs">
+      <DependentUpon>home_teacher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home_teacher.aspx.designer.cs">
+      <DependentUpon>home_teacher.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.aspx.cs">
       <DependentUpon>Result.aspx</DependentUpon>

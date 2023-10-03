@@ -4,74 +4,100 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Teacher Signup</title>
     <style>
-        /* Style for the body element with a background image */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Work+Sans:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Young+Serif&display=swap');
+        html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
         body {
-            background-image: url('https://studentprojectguide.com/wp-content/uploads/2020/07/Online-Exam-Portal.jpeg'); /* Replace 'exam-background.jpg' with the actual path to your image */
-            background-size: cover; /* Cover the entire viewport */
-            background-repeat: no-repeat; /* No repeating of the image */
-            background-attachment: fixed; /* Fixed background */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
-            font-family: Arial, sans-serif; /* Set a font-family */
+              font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1593589279419-7da07fd2148d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+   
         }
+form {
+    width: 510px;
+    height: 260px; 
+    margin: 300px auto;
+    padding: 20px;
+    background-color: rgba(139, 69, 19, 0.5);
+    border: 4px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+}
 
-        /* Style for the table */
-        table.auto-style1 {
-            width: 50%;
-            margin: 0 auto; /* Center the table horizontally */
-            margin-top: 250px;
-            border-collapse: collapse;
-            background-color: rgba(255, 255, 255, 0.8); /* Background color with transparency */
-            padding: 20px; /* Add some padding to the table */
-        }
 
-        /* Style for table cells with class auto-style2 */
-        td.auto-style2 {
-            font-weight: bold;
-            padding: 5px;
-        }
+table {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
 
-        /* Style for textboxes */
-        input[type="text"] {
-            width: 100%;
-            padding: 5px;
-            margin-bottom: 10px;
-        }
+.auto-style2 {
+    width: 30%;
+    font-weight:100;
+    text-align: right;
+    padding-right: 10px;
+    vertical-align: top;
+    font-size: 20px;
+}
 
-        /* Style for the Register button */
-        #btnRegister {
-            padding: 10px;
-            background-color: #007BFF;
-            color: #fff;
-            text-align:left;
-            border:groove;
-            cursor: pointer;
-        }
+.auto-style3 {
+    padding-left: 10px;   
+    vertical-align: top;
+}
 
-        #btnLogin{
-            padding: 10px;
-            background-color: #007BFF;
-            color: #fff;
-            text-align:left;
-            border:groove;
-            cursor: pointer;
-        }
+.auto-style4 {
+    text-align: center;
+}
 
-        /* Style for the RequiredFieldValidator error message */
-        .validator-error {
-            text-align:right;
-            color: red;
-        }
+.auto-style5 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auto-style6 {
+    width: 100%;
+    text-align: center;
+}
+
+.auto-style7 {
+    margin-top: 10px;
+}
+
+.auto-style8 {
+    background-color: #007BF;
+    color: #fff;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.auto-style8:hover {
+    background-color: #0056b3;
+}
+
+.auto-style9 {
+    color: Red;
+}
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+         
         </div>
         <table class="auto-style1">
             <tr>
+                 <h1 style="font-family: 'Young Serif', serif; font-size:48px">Register As Teacher</h1>
                 <td class="auto-style2">Name</td>
                 <td>
                     <asp:TextBox ID="tbName" runat="server"></asp:TextBox>
@@ -101,7 +127,7 @@
             <tr>
                 <td class="auto-style2">Password</td>
                 <td>
-                    <asp:TextBox ID="tbPassword" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbPassword" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorPassword" runat="server" ControlToValidate="tbPassword" ErrorMessage="Password is Required" ForeColor="Red" CssClass="validator-error"></asp:RequiredFieldValidator>
@@ -110,11 +136,11 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="btnRegister" runat="server" Text="SignUp" Width="65px" OnClick="btnregistr_Click" CssClass="btn-register" />
+                    <asp:Button ID="btnRegister" runat="server" Text="SignUp" Width="75px" OnClick="btnregistr_Click" CssClass="auto-style2" />
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnLogin" runat="server" Text="Login" Width="65px" OnClick="btnlogin_Click" CssClass="btn-register" />
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" Width="70px" OnClick="btnlogin_Click" CssClass="auto-style2" />
                 </td>
             </tr>
         </table>

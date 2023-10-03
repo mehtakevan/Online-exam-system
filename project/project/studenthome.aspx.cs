@@ -49,7 +49,7 @@ namespace project
 
             relatedContent = new List<string>();
 
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
 
             try
             {
@@ -93,6 +93,8 @@ namespace project
 
         protected void btnsubmit_click(object sender, EventArgs e)
         {
+            DateTime time = DateTime.Now;
+            Session["StartTime"] = time; 
             // Fetch the questions from the backend (replace with your data retrieval logic)
             List<Question> questions = FetchQuestionsFromDatabase(); // Implement this function
 
@@ -103,7 +105,7 @@ namespace project
         protected List<Question> FetchQuestionsFromDatabase()
         {
             List<Question> q = new List<Question>();
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
             SqlConnection con = new SqlConnection(constr);
 
             using (con)
@@ -150,7 +152,7 @@ namespace project
         {
             int cid = -1;
             string ccid = "";
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
             try
             {
                 SqlConnection con = new SqlConnection(constr);
@@ -182,6 +184,10 @@ namespace project
         DataSet ds;
         protected void btnevaluate_click(object sender, EventArgs e)
         {
+            if(ddstd.Text == "Select standard" || ddsub.Text == "Select content")
+            {
+                Response.Redirect("studenthome.aspx");
+            }
             int sid = (int)Session["stdId"];
             string sub = ddsub.Text;
             int std = int.Parse(ddstd.Text);
@@ -222,7 +228,10 @@ namespace project
             List<string> correctans = new List<string>();
             int p = 0;
             int total = 0;
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            int notanswered = 0;
+            int correct = 0;
+            int incorrect = 0;
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
             try
             {
                 SqlConnection con = new SqlConnection(constr);
@@ -244,38 +253,52 @@ namespace project
 
                         if (givenans[p] == -1)
                         {
+                            notanswered++;
                             p++;
                         }
                         else if (ans == "OptionA" && givenans[p] == 0)
                         {
                             total += marks;
+                            correct++;
                             p++;
                         }
                         else if (ans == "OptionB" && givenans[p] == 1)
                         {
                             total += marks;
+                            correct++;
                             p++;
                         }
                         else if (ans == "OptionC" && givenans[p] == 2)
                         {
                             total += marks;
+                            correct++;
                             p++;
 
                         }
                         else if (ans == "OptionD" && givenans[p] == 3)
                         {
                             total += marks;
+                            correct++;
                             p++;
                         }
                         else
                         {
                             total -= negmarks;
+                            incorrect++;
                             p++;
                         }
                     }
 
                 }
+                DateTime endtime = DateTime.Now;
+                String starttime = Session["StartTime"].ToString();
+                DateTime sttime = DateTime.Parse(starttime);
+                TimeSpan totaltime = (endtime - sttime).Duration();
                 Session["Total"] = total;
+                Session["Correct"] = correct;
+                Session["Incorrect"] = incorrect;
+                Session["NotAnswered"] = notanswered;
+                Session["TimeTaken"] = totaltime;
             }
             catch (Exception ex)
             {
@@ -284,6 +307,10 @@ namespace project
             }
             try
             {
+                if (Session["Total"].ToString() == "0")
+                {
+                    Response.Redirect("studenthome.aspx");
+                } 
                 SqlConnection conn = new SqlConnection(constr);
                 SqlCommand cmdd = new SqlCommand();
                 cmdd.Connection = conn;

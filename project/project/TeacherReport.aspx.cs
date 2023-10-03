@@ -47,7 +47,7 @@ namespace project
 
             relatedContent = new List<string>();
 
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
 
             try
             {
@@ -91,7 +91,7 @@ namespace project
             string sub = ddsub.Text;
             int cid = FetchCourseId(sub, std);
 
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
             List<ReportData> report = new List<ReportData>();
             try
             {
@@ -128,7 +128,7 @@ namespace project
         {
             int cid = -1;
             string ccid = "";
-            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Lenovo\\Desktop\\gitrepo\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
+            string constr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\msjsc\\Desktop\\WAD\\project2\\project\\project\\App_Data\\Database.mdf;Integrated Security=True";
             try
             {
                 SqlConnection con = new SqlConnection(constr);
@@ -155,6 +155,14 @@ namespace project
             }
             cid = int.Parse(ccid);
             return cid;
+        }
+        protected void logout(object sender, EventArgs e)
+        {
+            Session["Name"] = string.Empty;
+            Session["Message"] = string.Empty;
+            Session["Total"] = string.Empty;
+            Session["Sid"] = string.Empty;
+            Response.Redirect("teacherlogin.aspx");
         }
     }
 }

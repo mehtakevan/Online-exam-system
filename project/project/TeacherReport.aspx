@@ -19,7 +19,7 @@
             margin: 0 auto;
             padding: 20px;
             background-color: #fff;
-            border: 2px solid #007BFF; /* Blue border around the form */
+            border: 2px solid #007BFF; 
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             margin-top: 50px;
@@ -86,6 +86,16 @@
                 <asp:ListItem>Select standard</asp:ListItem>
                 <asp:ListItem>1</asp:ListItem>
                 <asp:ListItem>2</asp:ListItem>
+                <asp:ListItem>3</asp:ListItem>
+                <asp:ListItem>4</asp:ListItem>
+                <asp:ListItem>5</asp:ListItem>
+                <asp:ListItem>6</asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>8</asp:ListItem>
+                <asp:ListItem>9</asp:ListItem>
+                <asp:ListItem>10</asp:ListItem>
+                <asp:ListItem>11</asp:ListItem>
+                <asp:ListItem>12</asp:ListItem>
             </asp:DropDownList><br />
             <asp:DropDownList runat="server" ID="ddsub">
                 <asp:ListItem>Select subject</asp:ListItem>
@@ -97,7 +107,7 @@
             <asp:GridView ID="GridViewReport" runat="server">
 
             </asp:GridView>
-
+            <asp:Button runat="server" Text="LogOut" ID="btnlogout" OnClick="logout"></asp:Button><br /><br />
         </div>
     </form>
 </body>
